@@ -1,0 +1,32 @@
+<?php include 'header.phtml'?>
+
+<form action="añadir" method ="POST" class="my-4" enctype= "multipart/form-data">
+    <div class="row">
+
+        <h2>Armado de presupuesto:</h2>
+            <div class="form-construct">
+                <label>Nombre para identificar el presupuesto</label>
+                <input name="identificar"type="text" class="form-control">
+            </div>
+            <div class="form-construct">
+                <label>Costo</label>
+                <input name="costo"type="text" class="form-control">
+            </div>
+            <div class="venta">
+                <label>Venta <a>(se le agrega automáticamente el 25% del costo)</a></label>
+                <input name="venta" id="venta" type="text" class="form-control" readonly>
+                <input name="venta_hidden" id="venta_hidden" type="hidden">
+            </div>
+            <div class="form-construct">
+                <label>Certificado</label>
+                <input name="certificado"type="text" class="form-control">
+            </div>
+            <div class="form-construct">
+                <label>Costo a pagar</label>
+                <input name="costo_a_pagar"type="number" class="form-control">
+            </div>
+        </div>
+    </div>
+<button type="submit" class="btn btn-primary">Guardar</button>
+
+</form>

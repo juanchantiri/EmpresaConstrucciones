@@ -1,0 +1,81 @@
+<?php 
+include 'header.phtml';
+?>
+<h6 id="mensaje">Has accedido al modo administrador con exito!</h6>
+
+<h2 id="titulo">Tabla en base a costos de construccion:</h2>
+<?php   foreach($construcciones as $construccion){ 
+?>
+
+<div class="separacion">
+    <h4 class ='identificacion'><?php echo $construccion->identificar?></h4>
+
+    <div class="tabla-container">
+
+        <div class="tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Material</th>
+                        <th>Costo</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr>
+                        <td>Madera</td>
+                        <td id="costo"><b><?php echo $construccion-> costo ?></b></td>
+                    </tr>            
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Venta</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr>
+                        <td id="Venta"><b><?php echo $construccion-> venta ?></b></td>
+                    </tr>            
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Certificado</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr>
+                        <td id="Certificado"><b><?php echo $construccion-> certificado ?></b></td>
+                    </tr>            
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Costo a pagar</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr>
+                        <td id="Costo_a_pagar"><b><?php echo $construccion-> costo_a_pagar ?></b></td>  
+                    </tr>            
+                </tbody>
+            </table> 
+        </div>
+    </div>
+    <a href= "eliminar/<?php echo $construccion->id ?>" type = "button" id = 'btn-construct'>Borrar</a>
+</div>
+<?php 
+        }
+?>

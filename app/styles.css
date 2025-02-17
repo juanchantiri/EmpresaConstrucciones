@@ -1,0 +1,325 @@
+/* 🎨 Estilos Generales - Mobile First */
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* ✅ Mensaje de éxito */
+#mensaje {
+    text-align: center;
+    animation: fadeOut 7s forwards;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+    width: 90%;
+    max-width: 600px;
+    margin: 15px auto;
+}
+
+/* 🏗️ Navbar */
+.navbar {
+    background-color: #f4a000;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 3px solid #333;
+}
+
+/* Enlaces de navegación */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.navbar a:hover {
+    background-color: #333;
+    color: #f4a000;
+    transform: scale(1.05);
+}
+
+/* Icono de menú (hamburguesa) */
+.navbar-toggler {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 4px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+/* Menú de navegación en dispositivos pequeños (inicialmente oculto) */
+.navbar-nav {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #f4a000;
+    width: 100%;
+    padding: 10px;
+    z-index: 10;
+}
+
+.navbar-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.navbar-nav a:hover {
+    background-color: #333;
+}
+
+/* Mostrar el menú cuando el toggler es activado */
+.navbar-nav.show {
+    display: flex;
+}
+
+
+
+/* 🏗️ Título principal */
+#titulo {
+    color: white;
+    background-color: #f4a000;
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 📊 Tablas de Costos */
+/* Identificación */
+.identificacion {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ff8c42;
+    font-weight: bold;
+}
+.tabla-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.tabla {
+    width: 100%;
+    max-width: 300px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tabla:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #f4a000;
+    color: white;
+    padding: 12px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+td {
+    padding: 12px;
+    font-size: 1rem;
+    color: #444;
+    font-weight: bold;
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) td {
+    background-color: #f1f1f1;
+}
+
+/* 🗑️ Botón de eliminar */
+#btn-construct {
+    display: block;
+    text-align: center;
+    background: #d9534f;
+    color: white;
+    padding: 7px;
+    margin: 15px auto 0;    
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+    max-width: 100px;
+}
+
+#btn-construct:hover {
+    background: #c9302c;
+    transform: scale(1.05);
+}
+
+.separacion{
+    margin-top: 75px;
+    background: linear-gradient(135deg, #ffffff, #ffffff);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+
+/* 📄 Formularios */
+form {
+    background: linear-gradient(135deg, #fef5e4, #f8e1c2);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    margin: 2rem auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+form label {
+    display: block; /* Asegura que cada label esté en su propia línea */
+    font-size: 16px; /* Tamaño de fuente adecuado */
+    font-weight: bold; /* Resalta el texto */
+    color: #333; /* Color oscuro para buena legibilidad */
+    margin-bottom: 5px; /* Espacio debajo del label */
+    text-transform: capitalize; /* Convierte la primera letra de cada palabra en mayúscula */
+}
+
+/* Efecto al enfocarse en el input */
+form label:focus-within {
+    color: #f4a000; /* Cambia el color al enfocarse en el campo */
+    transition: color 0.3s ease;
+}
+
+/* Estilo para los inputs */
+form input{
+    width: 100%; /* Asegura que los inputs ocupen todo el ancho disponible */
+    padding: 10px; /* Espaciado interno */
+    margin: 5px 0 15px 0; /* Espacio entre los inputs */
+    border: 2px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño de la fuente */
+    background-color: #fef6e4; /* Fondo suave */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+/* Estilo de los inputs cuando están enfocados */
+form input:focus {
+    border-color: #f4a000; /* Cambio de color al enfocarse */
+    outline: none; /* Elimina el borde predeterminado */
+    box-shadow: 0 0 5px rgba(244, 160, 0, 0.5); /* Sombra suave para el enfoque */
+}
+
+input, button{
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+form h2 {
+    font-size: 1.8rem;
+    color: #ff8c42;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+}
+
+form h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #ff8c42;
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+div.venta{
+    display:none;
+}
+
+
+/* 📱 Mobile First */
+@media (min-width: 768px) {
+    .tabla-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .tabla {
+        flex: 1 1 calc(33.333% - 20px);
+        max-width: 250px;
+    }
+
+    .navbar-nav {
+        display: flex; /* Mostrar el menú horizontalmente en pantallas grandes */
+        flex-direction: row;
+        position: static;
+        gap: 20px;
+    }
+
+    .navbar-toggler {
+        display: none; /* Ocultar el icono de menú en pantallas grandes */
+    }
+    
+    .navbar a {
+        font-size: 18px; /* Aumentar el tamaño de fuente para pantallas grandes */
+    }
+}
+
