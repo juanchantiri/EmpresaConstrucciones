@@ -27,6 +27,9 @@ body {
 }
 
 /* 🏗️ Navbar */
+.navbar-logo{
+    display: none;
+}
 .navbar {
     background-color: #f4a000;
     padding: 12px;
@@ -70,7 +73,7 @@ body {
 }
 
 /* Menú de navegación en dispositivos pequeños (inicialmente oculto) */
-.navbar-nav {
+div.navbar-nav {
     display: none;
     flex-direction: column;
     gap: 10px;
@@ -306,7 +309,7 @@ div.venta{
         flex: 1 1 calc(33.333% - 20px);
         max-width: 250px;
     }
-
+    
     .navbar-nav {
         display: flex; /* Mostrar el menú horizontalmente en pantallas grandes */
         flex-direction: row;
@@ -320,6 +323,9 @@ div.venta{
     
     .navbar a {
         font-size: 18px; /* Aumentar el tamaño de fuente para pantallas grandes */
+    }
+    .navbar-logo{
+        display: flex;
     }
 }
 
