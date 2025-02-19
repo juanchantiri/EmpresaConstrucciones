@@ -1,32 +1,115 @@
-<?php include 'header.phtml'?>
+<?php include 'header.phtml' ?>
 
-<form action="añadir" method ="POST" class="my-4" enctype= "multipart/form-data">
+<form action="añadir" method="POST" class="my-4" enctype="multipart/form-data">
     <div class="row">
 
         <h2>Armado de presupuesto:</h2>
+        
+        <div class="form-construct">
+            <label>Nombre para identificar el presupuesto</label>
+            <input name="identificar" type="text" class="form-control">
+        </div>
+        
+        <!-- Formulario de costos -->
+        <div id="costos-container">
             <div class="form-construct">
-                <label>Nombre para identificar el presupuesto</label>
-                <input name="identificar"type="text" class="form-control">
+                <label>Descripción del costo</label>
+                <input name="costos[0][descripcion]" type="text" class="form-control" placeholder="Descripción del costo">
             </div>
             <div class="form-construct">
-                <label>Costo</label>
-                <input name="costo"type="text" class="form-control">
-            </div>
-            <div class="venta">
-                <label>Venta <a>(se le agrega automáticamente el 25% del costo)</a></label>
-                <input name="venta" id="venta" type="text" class="form-control" readonly>
-                <input name="venta_hidden" id="venta_hidden" type="hidden">
-            </div>
-            <div class="form-construct">
-                <label>Certificado</label>
-                <input name="certificado"type="text" class="form-control">
-            </div>
-            <div class="form-construct">
-                <label>Costo a pagar</label>
-                <input name="costo_a_pagar"type="number" class="form-control">
+                <label>Valor del Costo</label>
+                <input name="costos[0][valor]" type="number" class="form-control valor" placeholder="Valor del costo">
             </div>
         </div>
-    </div>
-<button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" id="add-costo" class="btn btn-secondary">Agregar otro costo</button>
 
+        
+        <button type="button" id="add-costo" class="btn btn-secondary">Agregar otro costo</button>
+
+        <div class="venta">
+            <label>Venta <a>(se le agrega automáticamente el 25% del costo)</a></label>
+            <input name="venta" id="venta" type="text" class="form-control" readonly>
+            <input name="venta_hidden" id="venta_hidden" type="hidden">
+        </div>
+        
+        <div class="form-construct">
+            <label>Certificado</label>
+            <input name="certificado" type="text" class="form-control">
+        </div>
+        
+        <div class="form-construct">
+            <label>Costo a pagar</label>
+            <input name="costo_a_pagar" type="number" class="form-control">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
 </form>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let index = 0; // Índice para los costos
+
+    // Botón para agregar más costos
+    document.getElementById("add-costo").addEventListener("click", function () {
+        let container = document.getElementById("costos-container");
+
+        index++; // Aumentamos el índice para que no se repitan nombres de los inputs
+
+        // Crear div para la nueva descripción
+        let newDescripcionDiv = document.createElement("div");
+        newDescripcionDiv.classList.add("form-construct");
+
+        let newDescripcionInput = document.createElement("input");
+        newDescripcionInput.name = `costos[${index}][descripcion]`;
+        newDescripcionInput.type = "text";
+        newDescripcionInput.classList.add("form-control", "costo");
+        newDescripcionInput.placeholder = "Descripción del costo";
+
+        newDescripcionDiv.appendChild(newDescripcionInput);
+
+        // Crear div para el nuevo valor
+        let newValorDiv = document.createElement("div");
+        newValorDiv.classList.add("form-construct");
+
+        let newValorInput = document.createElement("input");
+        newValorInput.name = `costos[${index}][valor]`;
+        newValorInput.type = "number";
+        newValorInput.classList.add("form-control", "valor");
+        newValorInput.placeholder = "Valor del costo";
+
+        newValorDiv.appendChild(newValorInput);
+
+        // Agregar los nuevos campos al formulario
+        container.appendChild(newDescripcionDiv);
+        container.appendChild(newValorDiv);
+
+        // Agregar evento de actualización al nuevo campo
+        newValorInput.addEventListener("input", actualizarTotales);
+    });
+
+    // Función para actualizar la venta y costo a pagar automáticamente
+    function actualizarTotales() {
+        let totalCosto = 0;
+
+        // Obtener todos los valores de los costos y sumarlos
+        document.querySelectorAll(".valor").forEach(input => {
+            totalCosto += parseFloat(input.value) || 0; // Evita NaN sumando 0 si está vacío
+        });
+
+        // Calcular el 25% adicional para la venta
+        let venta = totalCosto * 1.25;
+
+        // Actualizar los campos de venta y costo a pagar
+        document.getElementById("venta").value = venta.toFixed(2);
+        document.getElementById("venta_hidden").value = venta.toFixed(2);
+        document.querySelector('input[name="costo_a_pagar"]').value = totalCosto.toFixed(2);
+    }
+
+    // Asignar evento a los valores de los costos iniciales
+    document.querySelectorAll(".valor").forEach(input => {
+        input.addEventListener("input", actualizarTotales);
+    });
+});
+
+</script>
