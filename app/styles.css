@@ -109,77 +109,105 @@ div.navbar-nav {
 /* 🏗️ Título principal */
 #titulo {
     color: white;
-    background-color: #f4a000;
-    padding: 15px;
+    background-color: #f4a000; /* Color primario */
+    padding: 20px 25px;
     text-align: center;
-    font-size: 24px;
+    font-size: 28px; /* Aumentamos el tamaño */
     font-weight: bold;
     text-transform: uppercase;
-    border-radius: 5px;
-    margin: 20px auto;
+    border-radius: 8px; /* Bordes más suaves */
+    margin: 25px auto;
     width: 90%;
-    max-width: 800px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    max-width: 850px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    letter-spacing: 1.2px; /* Espaciado entre letras */
+    font-family: 'Roboto', sans-serif; /* Fuente más moderna */
 }
 
 /* 📊 Tablas de Costos */
 /* Identificación */
 .identificacion {
     text-align: center;
-    font-size: 1.5rem;
-    color: #ff8c42;
-    font-weight: bold;
+    font-size: 1.6rem; /* Aumentamos el tamaño */
+    color: #f4a000; /* Color consistente */
+    font-weight: 600;
+    text-transform: capitalize; /* Convierte la primera letra de cada palabra */
+    margin-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
 }
+
+/* Contenedor de la tabla */
 .tabla-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
     align-items: center;
     width: 90%;
     margin: 0 auto;
 }
 
+/* Estilo general de la tabla */
 .tabla {
     width: 100%;
-    max-width: 300px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    text-align: center;
+    max-width: 100%; /* Asegura que ocupe todo el ancho */
+    background-color: #ffffff;
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra más profesional */
+    padding: 20px;
+    text-align: center; 
     transition: transform 0.3s, box-shadow 0.3s;
+    font-family: 'Arial', sans-serif; /* Fuente más neutral */
 }
 
 .tabla:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px); /* Efecto de elevación */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
 }
 
+/* Estilo de la tabla */
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 10px;
+    height: auto;
 }
 
+/* Encabezado de la tabla */
 th {
     background-color: #f4a000;
     color: white;
-    padding: 12px;
-    font-size: 1rem;
+    padding: 15px;
+    font-size: 1.1rem; /* Tamaño un poco mayor */
+    font-weight: 600; /* Más énfasis */
     text-transform: uppercase;
-    border-radius: 5px;
+    text-align: center; /* Mejor alineación */
 }
 
+/* Celdas de la tabla */
 td {
     padding: 12px;
     font-size: 1rem;
-    color: #444;
-    font-weight: bold;
+    color: #444; /* Color más oscuro para mejor legibilidad */
+    font-weight: 500; /* Peso de fuente más ligero */
     background-color: #f9f9f9;
 }
 
+/* Fila alterna */
 tr:nth-child(even) td {
-    background-color: #f1f1f1;
+    background-color: #f1f1f1; /* Alternancia sutil */
 }
+
+tr:nth-child(odd) td {
+    background-color: #ffffff; /* Fila de fondo blanco */
+}
+
+tr:hover td {
+    background-color: #f4a000; /* Cambio de fondo al pasar el ratón */
+    color: white; /* Texto blanco al pasar el ratón */
+}
+
+
+
 
 /* 🗑️ Botón de eliminar */
 #btn-construct {
@@ -293,6 +321,41 @@ form h2::after {
 }
 div.venta{
     display:none;
+}
+
+.botonForm {
+    background: linear-gradient(135deg, #ff8c42, #ff6b35); /* Degradado en tonos naranja */
+    color: white; /* Texto en blanco */
+    font-size: 1rem; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    border: none; /* Sin borde */
+    border-radius: 6px; /* Bordes redondeados */
+    padding: 12px 20px; /* Espaciado interno */
+    cursor: pointer; /* Cursor en forma de mano */
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.botonForm:hover {
+    background: linear-gradient(135deg, #ff6b35, #e05d2f); /* Color más oscuro */
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4); /* Sombra llamativa */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Efecto al presionar */
+.botonForm:active {
+    background: linear-gradient(135deg, #e05d2f, #c94d27); /* Más oscuro aún */
+    transform: translateY(1px); /* Simula un clic */
+    box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);
+}
+
+/* Efecto para deshabilitado */
+.botonForm:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }
 
 
