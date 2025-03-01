@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-02-2025 a las 22:34:35
+-- Tiempo de generación: 01-03-2025 a las 04:48:11
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,9 +40,7 @@ CREATE TABLE `construccion` (
 --
 
 INSERT INTO `construccion` (`id`, `certificado`, `costo_a_pagar`, `identificar`, `venta`) VALUES
-(24, 'certificado', 340000, 'casa para el dueño de tiendaNube', 425000.00),
-(25, 'vos sabes', 100045554, 'juanceto prueba', 99999999.99),
-(26, 'juanceto prueba', 84566909, 'Dueño tiendaNube', 99999999.99);
+(32, 'Obra aprobada', 34354354, 'Dueño tiendaNube', 42942942.50);
 
 -- --------------------------------------------------------
 
@@ -63,15 +61,8 @@ CREATE TABLE `costos` (
 --
 
 INSERT INTO `costos` (`id`, `id_construccion`, `descripcion`, `valor`, `fecha_creacion`) VALUES
-(3, 24, 'Tejas', 140000, '2025-02-19 20:44:25'),
-(4, 24, 'bloques', 200000, '2025-02-19 20:44:25'),
-(5, 25, 'prueba juan', 33333, '2025-02-19 21:30:59'),
-(6, 25, 'bloques', 100000000, '2025-02-19 21:30:59'),
-(7, 25, 'prueba juan', 5555, '2025-02-19 21:30:59'),
-(8, 25, 'juanjuan', 6666, '2025-02-19 21:30:59'),
-(9, 26, 'Tejas', 40005677, '2025-02-19 21:33:21'),
-(10, 26, 'no se', 40005677, '2025-02-19 21:33:21'),
-(11, 26, 'quii', 4555555, '2025-02-19 21:33:21');
+(18, 32, 'Tejas', 3123123, '2025-02-20 00:23:09'),
+(19, 32, 'bloques', 31231231, '2025-02-20 00:23:09');
 
 -- --------------------------------------------------------
 
@@ -124,13 +115,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `construccion`
 --
 ALTER TABLE `construccion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `costos`
 --
 ALTER TABLE `costos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

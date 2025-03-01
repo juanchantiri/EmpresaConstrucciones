@@ -13,11 +13,25 @@ class construccionesController {
 
     function showConstructions() {
         $construcciones = $this->model->getConstructions();
+
+        // Formateamos los valores antes de pasarlos a la vista
+        foreach ($construcciones as &$c) {
+            $c->venta = number_format($c->venta, 0, '', '.');
+            $c->costo_a_pagar = number_format($c->costo_a_pagar, 0, '', '.');
+        }
+
         return $this->view->mostrarConstrucciones($construcciones);
     }
 
     function mostrarFormPresupuesto() {
         $construcciones = $this->model->getConstructions();
+
+        // Formateamos los valores antes de pasarlos a la vista
+        foreach ($construcciones as &$c) {
+            $c->venta = number_format($c->venta, 0, '', '.');
+            $c->costo_a_pagar = number_format($c->costo_a_pagar, 0, '', '.');
+        }
+
         return $this->view->mostrarFormPresupuesto($construcciones);
     }
 
@@ -32,8 +46,10 @@ class construccionesController {
         // Verificamos si se enviaron costos correctamente
         if (isset($_POST['costos']) && is_array($_POST['costos'])) {
             foreach ($_POST['costos'] as $costo) {
-                if (!empty($costo['descripcion']) && !empty($costo['valor']) && is_numeric($costo['valor'])) {
-                    $this->model->añadirCosto($id_construccion, trim($costo['descripcion']), floatval($costo['valor']));
+                if (!empty($costo['descripcion']) && !empty($costo['valor']) && is_numeric(str_replace(".", "", $costo['valor']))) {
+                    // Eliminamos los puntos antes de guardarlo
+                    $valorLimpio = floatval(str_replace(".", "", $costo['valor']));
+                    $this->model->añadirCosto($id_construccion, trim($costo['descripcion']), $valorLimpio);
                 }
             }
         } else {
